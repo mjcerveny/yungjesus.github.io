@@ -13,11 +13,13 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow: hidden; /* Prevents horizontal scrollbar */
         }
 
         .wrapper {
             text-align: center;
             flex: 1;
+            position: relative;
         }
 
         footer {
@@ -37,15 +39,48 @@
             margin-right: auto;
         }
 
-        .column {
-            width: 100%;
-            padding: 5px;
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: scrollText 8s linear infinite, changeColor 4s infinite alternate;
         }
 
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
+        @keyframes scrollText {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+
+        @keyframes changeColor {
+            0% {
+                color: violet;
+            }
+            16.666% {
+                color: indigo;
+            }
+            33.333% {
+                color: blue;
+            }
+            50% {
+                color: green;
+            }
+            66.666% {
+                color: yellow;
+            }
+            83.333% {
+                color: orange;
+            }
+            100% {
+                color: red;
+            }
         }
     </style>
 </head>
@@ -54,7 +89,7 @@
     <div class="wrapper">
         <a href="./"><img src="https://i.imgur.com/pjqBbHO.gif" alt="yungjesus.xyz" width="238" height="101" class="center"></a>
         <br>
-        <h1 align="center">Under Construction</h1>
+        <h1 style="font-size: 100px">1-800-GOFUCKYOURSELF</h1>
     </div>
 
     <div class="push"></div>
