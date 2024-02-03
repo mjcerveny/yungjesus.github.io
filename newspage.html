@@ -47,16 +47,65 @@
             clear: both;
             display: table;
         }
+
+        .news-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .news-item {
+            cursor: pointer;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 0, 0, 0); /* Transparent border */
+            border-radius: 5px;
+            transition: transform 0.3s; /* Add transition for smooth effect */
+        }
+
+        .news-item:hover {
+            transform: scale(1.1); /* Enlarge the button on hover */
+        }
+
+        .news-item img {
+            max-width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0); /* Transparent border */
+            border-radius: 5px;
+            transition: transform 0.3s; /* Add transition for smooth effect */
+        }
+
+        .news-item img:hover {
+            transform: scale(1.1); /* Enlarge the image on hover */
+        }
+
+        .news-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0); /* Transparent border */
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <a href="./"><img src="https://i.imgur.com/pjqBbHO.gif" alt="yungjesus.xyz" width="238" height="101" class="center"></a>
+        <a href="./"><img src="https://i.imgur.com/pjqBbHO.gif" alt="yungjesus.xyz" width="238" height="101"
+                class="center"></a>
         <br>
-        <h3 align="center">February 2nd, 2024</h3>
-        <p align="center">yungjesus.xyz is launched</p>
-        <p align="center">fuck you</p>
+
+        <div class="news-container">
+            <div class="news-item" onclick="toggleNews('news1')">
+                <img src="./img/date/feb2.png" alt="feb2" height="50" width="75">
+            </div>
+            <div id="news1" class="news-content">yungjesus.xyz has been launched <br> fuck yeah</div>
+
+            <div class="news-item" onclick="toggleNews('news2')">
+                <img src="./img/date/feb3.png" alt="feb3" height="50" width="75">
+            </div>
+            <div id="news2" class="news-content">update swag <br> lil b is my friend </div>
+
+            <!-- Add more news items as needed -->
+        </div>
     </div>
 
     <div class="push"></div>
@@ -64,6 +113,28 @@
     <footer>
         <img src="./img/footer.png">
     </footer>
+
+    <script>
+        function toggleNews(newsId) {
+            var newsContent = document.getElementById(newsId);
+
+            // Hide all news contents
+            var allNewsContents = document.querySelectorAll('.news-content');
+            allNewsContents.forEach(function (content) {
+                if (content !== newsContent) {
+                    content.style.display = 'none';
+                }
+            });
+
+            // Toggle display for the selected news content
+            if (newsContent.style.display === 'block') {
+                newsContent.style.display = 'none';
+            } else {
+                newsContent.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 
 </html>
+
